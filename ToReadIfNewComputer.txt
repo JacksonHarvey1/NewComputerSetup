@@ -1,0 +1,2 @@
+pip install -r requirements.txt for python
+Download backup from goggle drive and run all exe files.
