@@ -1,1 +1,2 @@
 Download backup from goggle drive and run all exe files.
+Make sure to install python, VSC, and import os import subprocess import winreg as reg before runnng setup.py
