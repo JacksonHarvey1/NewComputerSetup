@@ -1,5 +1,6 @@
 import os
 import subprocess
+import winreg as reg
 
 def run_exe_files_in_folder(folder_path):
     try:
@@ -61,8 +62,59 @@ def install_requirements_from_file(requirements_file):
 
     except Exception as e:
         print(f"An error occurred: {e}")
+def add_to_path(path):
+    """
+    Add Tesseract installation directory to system PATH.
+    
+    Modifies Windows registry to include Tesseract in system-wide PATH,
+    enabling OCR functionality across the system.
+    """
+    try:
+        # Open system PATH environment variable in registry
+        reg_key = reg.OpenKey(reg.HKEY_LOCAL_MACHINE, 
+                            r"SYSTEM\CurrentControlSet\Control\Session Manager\Environment", 
+                            0, 
+                            reg.KEY_READ | reg.KEY_WRITE)
 
+        # Retrieve current PATH value
+        current_path, _ = reg.QueryValueEx(reg_key, "Path")
+
+        # Add Tesseract path if not already present
+        if path not in current_path:
+            updated_path = f"{current_path};{path}"
+            reg.SetValueEx(reg_key, "Path", 0, reg.REG_EXPAND_SZ, updated_path)
+            print(f"Added {path} to PATH.")
+        else:
+            print(f"{path} is already in PATH.")
+
+        reg.CloseKey(reg_key)
+    
+    except PermissionError:
+        # Handle lack of administrative privileges
+        print("Access denied: Run the script as an administrator.")
+    
+    except Exception as e:
+        # Log any unexpected errors during PATH modification
+        print(f"Error: {e}")
+
+def process_lines_from_file(file_path, function):
+    try:
+        # Check if the file exists
+        if not os.path.exists(file_path):
+            print(f"The file '{file_path}' does not exist.")
+            return
+
+        # Read the file line by line and pass each line to the function
+        with open(file_path, 'r') as file:
+            for line in file:
+                line = line.strip()
+                if line:  # Skip empty lines
+                    function(line)
+
+    except Exception as e:
+        print(f"An error occurred while processing the file: {e}")
 # Example usage
 if __name__ == "__main__":
-    #run_exe_files_in_folder("Apps Installed")
+    run_exe_files_in_folder("Apps Installed")
     install_requirements_from_file("requirements.txt")
+    process_lines_from_file("enviromentVariables.txt", add_to_path)

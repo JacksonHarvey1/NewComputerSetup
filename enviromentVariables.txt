@@ -1,0 +1,20 @@
+C:\Program Files\Microsoft SQL Server\150\Tools\Binn\
+C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\
+C:\Program Files\dotnet\
+C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\
+C:\Program Files\nodejs\
+C:\ProgramData\chocolatey\bin
+C:\Users\harve\Downloads\Apps Installed\platform-tools_r34.0.5-windows\platform-tools
+C:\Users\harve\Downloads\Apps Installed\gradle-8.5-bin\gradle-8.5\bin
+C:\Users\harve\Downloads\Release-23.11.0-0\poppler-23.11.0\Library\bin\
+C:\Program Files\Java\jdk-21\bin
+C:\Program Files (x86)\ZED SDK\dependencies\freeglut_2.8\x64
+C:\Program Files (x86)\ZED SDK\dependencies\glew-1.12.0\x64
+C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64
+C:\Program Files (x86)\ZED SDK\bin
+C:\Program Files\NVIDIA Corporation\Nsight Compute 2023.1.0\
+C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common
+C:\Program Files\Git\cmd
+C:\Program Files (x86)\Windows Kits\10\bin\10.0.22621.0\x86\mt.exe
+C:\Program Files\Tesseract-OCR
+C:\Program Files (x86)\Windows Kits\10\bin\10.0.22621.0\x86
