@@ -112,7 +112,6 @@ PyQt5
 PySide2
 wxPython
 Kivy
-Dear PyGui
 PyGTK
 PySimpleGUI
 Flask
